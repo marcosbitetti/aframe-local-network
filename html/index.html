@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello, World! - A-Frame</title>
+    <meta name="description" content="Hello, World! - A-Frame">
+    <script src="lib/aframe-v1.4.1.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+    <script src="lib/aframe-extras.controls.min.js"></script>
+    <script src="lib/aframe-extras.loaders.min.js"></script>
+  </head>
+
+  <body>
+	  <a-scene>
+
+      <!-- Assets -->
+      <a-assets>
+        <img id="sky" crossorigin="anonymous" src="/textures/sky1.webp" />
+      </a-assets>
+
+      <!-- envroment -->
+      <a-sky color="#FFF" src="#sky"></a-sky>
+      <a-entity light="color: #fff; groundColor: #8ff0a4; decay: 0.84; intensity: 0.56; type: ambient"></a-entity>
+      <a-entity light="angle: 28.63; decay: 1.35; intensity: 0.53; castShadow: true" position="0 3 6.5"></a-entity>
+      
+      <!-- Camera + Cursor. -->
+      <a-entity id="rig" movement-controls position=".25 0 .25">
+        <a-entity hand-controls="hand: left"></a-entity>
+        <a-entity laser-controls="hand: right" raycaster="objects: .collidable;"></a-entity>
+        <a-camera position="0 1.6 0">
+          <a-cursor
+            id="cursor"
+            collider-check
+            >
+            <a-entity raycaster="objects: .collidable;"></a-entity>
+          </a-cursor>
+        </a-camera>
+      </a-entity>
+
+      <!-- objects -->
+      <a-box id="box" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" class="collidable"></a-box>
+      <a-sphere id="sphere" position="0 1.25 -5" radius="1.25" color="#EF2D5E" class="collidable"></a-sphere>
+      <a-cylinder id="cylinder" position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" class="collidable"></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+
+    </a-scene>
+  </body>
+</html>

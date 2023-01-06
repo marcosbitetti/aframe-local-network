@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  nginx:
+    tty: true
+    container_name: webvr
+    image: nginx:latest
+    build:
+      context: .
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.config:/etc/nginx/nginx.conf:ro
+      - ./openssl:/etc/certificates:ro
+      - ./html:/var/www/html:ro
+    network_mode: "host"
