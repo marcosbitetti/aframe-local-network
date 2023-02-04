@@ -21,3 +21,9 @@ A Hello World with A-Frame for local development.
 VR devices need secure connections ([HTTPS](https://en.wikipedia.org/wiki/HTTPS)) to run.
 
 That projects use a self [signed certificates](https://en.wikipedia.org/wiki/Self-signed_certificate), it implies to the warning when the brownser opens the address on the first time.
+
+## Websocket
+
+Websocket are forwarded on `https://[you ip address]/ws`.
+
+You can change this route on `nginx.config` to better fit your needs.
